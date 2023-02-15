@@ -1,0 +1,28 @@
+{
+    "name": "oyova/laravel-support",
+    "description": "General support functionality for Oyova Laravel projects.",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Oyova\\LaravelSupport\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "require": {
+        "php": "^7.4",
+        "laravel/framework": "^8.83"
+    },
+    "require-dev": {
+        "oyova/php-cs-fixer": "^1.2"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
