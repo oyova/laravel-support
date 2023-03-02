@@ -72,8 +72,7 @@ if (
 ) {
     Field::macro('showOnAllExceptForms', function (): Field {
         return $this
-            ->showOnIndex()
-            ->showOnPeekAndPreview()
-            ->showOnDetail();
+            ->exceptOnForms()
+            ->showOnPeekAndPreview();
     });
 }
