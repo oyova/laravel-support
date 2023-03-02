@@ -68,11 +68,26 @@ if (
 
 if (
     class_exists(Field::class) &&
+    ! method_exists(Field::class, 'showOnAll')
+) {
+    Field::macro('showOnAll', function (): Field {
+        return $this
+            ->showOnIndex()
+            ->showOnPeekAndPreview()
+            ->showOnDetail()
+            ->showOnCreating()
+            ->showOnUpdating();
+    });
+}
+
+if (
+    class_exists(Field::class) &&
     ! method_exists(Field::class, 'showOnAllExceptForms')
 ) {
     Field::macro('showOnAllExceptForms', function (): Field {
         return $this
-            ->exceptOnForms()
-            ->showOnPeekAndPreview();
+            ->showOnAll()
+            ->showOnCreating(false)
+            ->showOnUpdating(false);
     });
 }
