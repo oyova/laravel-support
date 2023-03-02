@@ -6,28 +6,36 @@ use Illuminate\Support\Str;
 if (! function_exists('isLocal')) {
     function isLocal(): bool
     {
-        return app()->environment('local');
+        // Using config() instead of app()->environment() to allow for earlier
+        // access.
+        return config('app.env') === 'local';
     }
 }
 
 if (! function_exists('isTesting')) {
     function isTesting(): bool
     {
-        return app()->environment('testing');
+        // Using config() instead of app()->environment() to allow for earlier
+        // access.
+        return config('app.env') === 'testing';
     }
 }
 
 if (! function_exists('isStaging')) {
     function isStaging(): bool
     {
-        return app()->environment('staging');
+        // Using config() instead of app()->environment() to allow for earlier
+        // access.
+        return config('app.env') === 'staging';
     }
 }
 
 if (! function_exists('isProduction')) {
     function isProduction(): bool
     {
-        return app()->environment('production');
+        // Using config() instead of app()->environment() to allow for earlier
+        // access.
+        return config('app.env') === 'production';
     }
 }
 
