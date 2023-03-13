@@ -13,16 +13,22 @@
         ]
     },
     "require": {
-        "php": "^7.4 || ^8.0"
+        "php": ">=7.4,<8.2",
+        "ryanwhitman/php-values": "^1.2"
     },
     "require-dev": {
+        "illuminate/collections": "^8.83",
         "oyova/php-cs-fixer": "^1.2",
+        "pestphp/pest": "^1.22",
         "symfony/var-dumper": "^5.4"
     },
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
