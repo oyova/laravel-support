@@ -13,11 +13,9 @@
         ]
     },
     "require": {
-        "php": ">=7.4,<8.2",
-        "ryanwhitman/php-values": "^1.2"
+        "php": ">=7.4,<8.2"
     },
     "require-dev": {
-        "illuminate/collections": "^8.83",
         "oyova/php-cs-fixer": "^1.2",
         "pestphp/pest": "^1.22",
         "symfony/var-dumper": "^5.4"
