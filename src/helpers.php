@@ -3,6 +3,13 @@
 use App\Models\User;
 use Illuminate\Support\Str;
 
+if (! function_exists('isDebug')) {
+    function isDebug(): bool
+    {
+        return config('app.debug');
+    }
+}
+
 if (! function_exists('isLocal')) {
     function isLocal(): bool
     {
