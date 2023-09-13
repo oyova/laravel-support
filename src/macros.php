@@ -59,7 +59,9 @@ if (
     class_exists(Field::class) &&
     ! method_exists(Field::class, 'showOn')
 ) {
-    Field::macro('showOn', function (array $on = []): Field {
+    Field::macro('showOn', function ($on = []): Field {
+        $on = (array) $on;
+
         $all = $on['all'] ?? (array_search('all', $on, true) !== false ? true : null);
         $forms = $on['forms'] ?? (array_search('forms', $on, true) !== false ? true : null);
 
@@ -83,8 +85,10 @@ if (
      */
     Field::macro('showOnPeekAndPreview', function (): Field {
         return $this
-            ->showWhenPeeking()
-            ->showOnPreview();
+            ->showOn([
+                'peek',
+                'preview',
+            ]);
     });
 }
 
@@ -96,12 +100,7 @@ if (
      * @deprecated in favor of showOn()
      */
     Field::macro('showOnAll', function (): Field {
-        return $this
-            ->showOnIndex()
-            ->showOnPeekAndPreview()
-            ->showOnDetail()
-            ->showOnCreating()
-            ->showOnUpdating();
+        return $this->showOn('all');
     });
 }
 
@@ -114,8 +113,9 @@ if (
      */
     Field::macro('showOnAllExceptForms', function (): Field {
         return $this
-            ->showOnAll()
-            ->showOnCreating(false)
-            ->showOnUpdating(false);
+            ->showOn([
+                'all',
+                'forms' => false,
+            ]);
     });
 }
