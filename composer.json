@@ -13,7 +13,7 @@
         ]
     },
     "require": {
-        "php": ">=7.4,<8.2"
+        "php": ">=7.4,<8.3"
     },
     "require-dev": {
         "oyova/php-cs-fixer": "^1.2",
